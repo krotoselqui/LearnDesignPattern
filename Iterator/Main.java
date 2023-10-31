@@ -6,5 +6,9 @@ public class Main {
         Teacher you = new MyTeacher();
         you.createStudentList();
         you.callStudents();
+
+        Teacher veteran = new VeteranTeacher();
+        veteran.createStudentList();
+        veteran.callStudents();
     }
 }

@@ -1,8 +1,5 @@
 package LearnPattern.Iterator;
 
-// import java.util.List;
-// import java.util.ArrayList;
-
 public class MyTeacher extends Teacher {
 
     protected MyStudentList myStudentList;
