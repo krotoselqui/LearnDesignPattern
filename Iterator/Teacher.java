@@ -1,4 +1,4 @@
-package LearnIterator;
+package LearnPattern.Iterator;
 
 public abstract class Teacher {
     protected StudentList studentList;

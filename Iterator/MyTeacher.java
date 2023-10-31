@@ -1,29 +1,32 @@
-package LearnIterator;
+package LearnPattern.Iterator;
 
-import java.util.List;
-import java.util.ArrayList;
+// import java.util.List;
+// import java.util.ArrayList;
 
 public class MyTeacher extends Teacher {
 
-    protected List<MyStudent> students;
-
+    protected MyStudentList myStudentList;
+    
     public void createStudentList() {
-        List<MyStudent> students = new ArrayList<MyStudent>();
-        students.add(new MyStudent("赤井亮太", 1));
-        students.add(new MyStudent("赤羽里美", 2));
-        students.add(new MyStudent("岡田美央", 2));
-        students.add(new MyStudent("西森俊介", 1));
-        students.add(new MyStudent("中ノ森玲菜", 2));
 
-        this.students = students;
+        myStudentList = new MyStudentList(5);
+
+        myStudentList.add(new MyStudent("赤井亮太", 1));
+        myStudentList.add(new MyStudent("赤羽里美", 2));
+        myStudentList.add(new MyStudent("岡田美央", 2));
+        myStudentList.add(new MyStudent("西森俊介", 1));
+        myStudentList.add(new MyStudent("中ノ森玲菜", 2));
+
     }
 
     public void callStudents() {
-        if (students == null)
-            return;
 
-        for (MyStudent s : students) {
-            System.out.println(s.getName());
+        Iterator itr = myStudentList.iterator();
+
+        while(itr.hasNext()){
+            Student m = (Student)(itr.next());
+            System.out.println(m.getName());
         }
+
     }
 }

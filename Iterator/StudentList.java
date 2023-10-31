@@ -1,4 +1,4 @@
-package LearnIterator;
+package LearnPattern.Iterator;
 
 public class StudentList {
     protected Student[] students;

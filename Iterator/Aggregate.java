@@ -1,0 +1,5 @@
+package LearnPattern.Iterator;
+
+public interface Aggregate {
+    public Iterator iterator();
+}

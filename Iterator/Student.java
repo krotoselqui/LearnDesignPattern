@@ -1,4 +1,4 @@
-package LearnIterator;
+package LearnPattern.Iterator;
 
 public class Student{
   	private String name;
