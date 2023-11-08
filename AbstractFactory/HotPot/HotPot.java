@@ -28,4 +28,12 @@ public class HotPot {
     public void addOtherIngredients(List<Ingredients> otherIngredients){
         this.otherIngredients = otherIngredients;
     }
+
+    public void showItems(){
+        System.out.println(pot.toString());
+        System.out.println(soup.toString());
+        System.out.println(protein.toString());
+        System.out.println(vegetables.toString());
+        System.out.println(otherIngredients.toString());
+    }
 }
