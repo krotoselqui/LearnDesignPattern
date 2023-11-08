@@ -21,5 +21,7 @@ public class Solve {
         dir.constract();
         SaltWater saltWater2 = (SaltWater)builder.getResult();
 
+        System.out.println("water = " + saltWater2.water + ", salt = " + saltWater2.salt);
+        
     }
 }
