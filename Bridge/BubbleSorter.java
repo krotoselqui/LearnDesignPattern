@@ -1,6 +1,6 @@
 package LearnPattern.Bridge;
 
-public class BubbleSorter extends Sorter {
+public class BubbleSorter extends SortImple {
     public void sort(Object[] arr) {
         int n = arr.length;
         boolean swapped;

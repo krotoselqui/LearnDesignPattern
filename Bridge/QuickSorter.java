@@ -1,6 +1,6 @@
 package LearnPattern.Bridge;
 
-public class QuickSorter extends Sorter {
+public class QuickSorter extends SortImple {
 
     public void sort(Object arr[]) {
         quickSort(arr, 0, arr.length - 1);

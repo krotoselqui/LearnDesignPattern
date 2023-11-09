@@ -1,7 +1,10 @@
 package LearnPattern.Bridge;
 
 public class TimerSorter extends Sorter {
-    
+    public TimerSorter(SortImple sortImple){
+        super(sortImple);
+    }
+
     public void timerSorter(Object obj[]) {
         long start = System.currentTimeMillis();
         sort(obj);
@@ -9,8 +12,9 @@ public class TimerSorter extends Sorter {
         System.out.println("time:" + (end - start));
     }
 
-    public void sort(Object[] obj){
-        QuickSorter q = new QuickSorter();
-        q.sort(obj);
-    }
+    // public void sort(Object[] obj){
+    //     QuickSorter q = new QuickSorter();
+    //     q.sort(obj);
+    // }
+    
 }
