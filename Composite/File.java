@@ -1,13 +1,11 @@
 package LearnPattern.Composite;
 
-public class File {
+public class File implements DirectoryEntry {
     private String name = null;
-
-    public File(String name) {
+    public File(String name){
         this.name = name;
     }
-
-    public void remove() {
+    public void remove(){
         System.out.println(name + "を削除しました");
     }
 }
