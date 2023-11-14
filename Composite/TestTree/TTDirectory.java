@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-
 public class TTDirectory implements DirectoryEntry {
 
     private List<DirectoryEntry> _list = null;
@@ -13,29 +12,40 @@ public class TTDirectory implements DirectoryEntry {
     private String _path;
     private String _name;
 
-    public TTDirectory(String path,String name) {
+    public TTDirectory(String path, String name) {
         _path = path;
         _name = name;
         _list = new ArrayList<DirectoryEntry>();
         create();
     }
 
-    public void add(TTFile file){
-        _list.add(file);
+    public void add(TTFile add_file) {
+        _list.add(add_file);
+        add_file.move(new File(_path, _name).getPath());
     }
 
-    public void add(TTDirectory dir){
-        _list.add(dir);
+    public void add(TTDirectory add_dir) {
+        _list.add(add_dir);
+        add_dir.move(new File(_path, _name).getPath());
     }
 
-    public void create(){
+    public void move(String new_path) {
+        if (_dir == null)
+            return;
+        _path = new_path;
+        _dir.renameTo(new File(new_path, _name));
+
+    }
+
+    public boolean create() {
         try {
 
-            System.out.println("making file in" + _path + "  -   " + _name);
+            System.out.println("making file in " + _path + "  -   " + _name);
             _dir = new File(_path, _name);
 
             if (_dir.mkdirs()) {
                 System.out.println("Directory created: " + _path);
+                return true;
             } else {
                 System.out.println("Directory already exists.");
             }
@@ -44,15 +54,30 @@ public class TTDirectory implements DirectoryEntry {
 
             System.out.println("An error occurred.");
             e.printStackTrace();
-            
         }
+
+        return false;
     }
 
-    public void remove(){
+    public boolean remove() {
+
         Iterator<DirectoryEntry> itr = _list.iterator();
-        while(itr.hasNext()){
+
+        while (itr.hasNext()) {
             DirectoryEntry entry = itr.next();
-            entry.remove();
+            try {
+                entry.remove();
+            } catch (Exception e) {
+                System.out.println("remove failed : " + entry.toString());
+                e.printStackTrace();
+            }
+
         }
+        return _dir.delete();
+    }
+
+    @Override
+    public String toString() {
+        return _name;
     }
 }

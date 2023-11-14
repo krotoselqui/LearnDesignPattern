@@ -16,8 +16,15 @@ public class TTFile implements DirectoryEntry {
 
     }
 
-    public void create() {
-        
+    public void move(String new_path) {
+        if (_file == null)
+            return;
+        _path = new_path;
+        _file.renameTo(new File(new_path, _name));
+    }
+
+    public boolean create() {
+
         try {
 
             System.out.println("making file in" + _path + "  -   " + _name);
@@ -25,6 +32,7 @@ public class TTFile implements DirectoryEntry {
 
             if (_file.createNewFile()) {
                 System.out.println("File created: " + _file.getName());
+                return true;
             } else {
                 System.out.println("File already exists.");
             }
@@ -33,14 +41,22 @@ public class TTFile implements DirectoryEntry {
 
             System.out.println("An error occurred.");
             e.printStackTrace();
-            
+
         }
+
+        return false;
     }
 
-    public void remove() {
+    public boolean remove() {
 
-        if(_file == null) return;
+        if (_file == null)
+            return false;
 
-        _file.delete();
+        return _file.delete();
+    }
+
+    @Override
+    public String toString() {
+        return _name;
     }
 }

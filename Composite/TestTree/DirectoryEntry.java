@@ -1,6 +1,7 @@
 package LearnPattern.Composite.TestTree;
 
 public interface DirectoryEntry {
-    public void create();
-    public void remove();
+    public boolean create();
+    public boolean remove();
+    public void move(String new_path);
 }
