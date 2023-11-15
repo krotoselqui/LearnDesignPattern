@@ -1,5 +1,6 @@
 package LearnPattern.Decorator;
 
-public class Icecream {
-    
+public interface Icecream {
+    public String getName();
+    public String getFlavor();    
 }
