@@ -11,12 +11,13 @@ public class ImagawasCutPrint extends CutPrint{
         System.out.println("インクとして、自分の血を使いプリントする");
     }
 
-    // class Potato implements Cuttable{
-    //     public Potato()
-    //     {
-    //         System.out.println("inside of ImagawasCutPrint class");
-    //     }
-    // }
+    //ここで記述することで、こちらのクラスが利用される
+    class Potato implements Cuttable{
+        public Potato()
+        {
+            System.out.println("inside of ImagawasCutPrint class");
+        }
+    }
 
     protected Cuttable creatCuttable = new Potato();
 }
