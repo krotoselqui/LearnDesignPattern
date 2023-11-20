@@ -8,6 +8,7 @@ public class Teacher {
 
     public void update(Student student,int count){
         _count += count;
+        System.out.println(_count);
     }
     
     
