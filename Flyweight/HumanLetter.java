@@ -5,6 +5,7 @@ public class HumanLetter {
 
     public HumanLetter(String letter) {
         _letter = letter;
+        System.out.println("letter{ " + letter + " }が生成されました");
     }
 
     public String getLetter() {
